@@ -8,4 +8,12 @@ public class SistemaPuntos {
     public SistemaPuntos(int puntos) {
         this.puntos=puntos;
     }
+
+    // Getters y Setters
+    public int getPuntos() {
+        return this.puntos;
+    }
+    public void setPuntos(int puntos) {
+        this.puntos=puntos;
+    }
 }
