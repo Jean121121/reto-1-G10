@@ -1,44 +1,98 @@
 package programacion.src;
 
-public class trabajador {
+public class Trabajador {
+    // Atributos
+    private int idempleado;
     private String nombre;
-    private String apellidos;
-    private int fecha_nacimiento;
+    private String apellido1;
+    private String apellido2;
+    private String fechaNacimiento;
     private String puesto;
     private String localizacion;
     private String descripcion;
 
-    // metodos de la clase
-
-    public trabajador(String nombre,String apellidos,
-                      int fecha_nacimineto, String puesto,
-                      String localizacion,String descripcion){
-
+    // Constructor
+    public Trabajador(int idempleado, String nombre, String apellido1, String apellido2,
+                      String fecha_nacimineto, String puesto,
+                      String localizacion, String descripcion){
+        this.idempleado=idempleado;
         this.nombre=nombre;
-        this.apellidos=apellidos;
-        this.fecha_nacimiento=fecha_nacimineto;
+        this.apellido1=apellido1;
+        this.apellido2=apellido2;
+        this.fechaNacimiento=fecha_nacimineto;
         this.puesto=puesto;
         this.localizacion=localizacion;
         this.descripcion=descripcion;
-
     }
-    public void mostrarperfil(){
-        System.out.println(nombre);
-        System.out.println(apellidos);
-        System.out.println(fecha_nacimiento);
-        System.out.println(puesto);
-        System.out.println(localizacion);
 
+    // Getters y Setters
+    public int getIdempleado() {
+        return this.idempleado;
     }
-    public void modificardatos(String new_nombre,String new_apellidos,
-                               int new_fecha_nacimineto, String new_puesto,
-                               String new_localizacion,String new_descripcion){
-        this.nombre=new_nombre;
-        this.apellidos=new_apellidos;
-        this.fecha_nacimiento=new_fecha_nacimineto;
-        this.puesto=new_puesto;
-        this.localizacion=new_localizacion;
-        this.descripcion=new_descripcion;
+    public String getNombre() {
+        return this.nombre;
+    }
+    public String getApellido1() {
+        return this.apellido1;
+    }
+    public String getApellido2() {
+        return this.apellido2;
+    }
+    public String getFechaNacimiento() {
+        return this.fechaNacimiento;
+    }
+    public String getPuesto() {
+        return this.puesto;
+    }
+    public String getLocalizacion() {
+        return this.localizacion;
+    }
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+    public void setIdempleado(int idempleado) {
+        this.idempleado=idempleado;
+    }
+    public void setNombre(String nombre) {
+        this.nombre=nombre;
+    }
+    public void setApellido1(String apellido1) {
+        this.apellido1=apellido1;
+    }
+    public void setApellido2(String apellido2) {
+        this.apellido2=apellido2;
+    }
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento=fechaNacimiento;
+    }
+    public void setLocalizacion(String localizacion) {
+        this.localizacion=localizacion;
+    }
+    public void setPuesto(String puesto) {
+        this.puesto=puesto;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion=descripcion;
+    }
+
+    // Metodos de la clase
+    public void mostrarPerfil(){
+        System.out.println("Id del empleado: " + getIdempleado() + ", Nombre: " + getNombre() +
+                ", Primer apellido: " + getApellido1() + ", Segundo apellido: " + getApellido2() +
+                ", Fecha nacimiento: " + getFechaNacimiento() + ", Puesto: " + getPuesto() +
+                ", Localizacion: " + getLocalizacion() + ", Descripcion: " + getDescripcion());
+    }
+    public void modificarDatos(int idempleado, String nombre,String apellido1, String apellido2,
+                               String fechaNacimineto, String puesto,
+                               String localizacion,String descripcion){
+        setIdempleado(idempleado);
+        setNombre(nombre);
+        setApellido1(apellido1);
+        setApellido2(apellido2);
+        setFechaNacimiento(fechaNacimineto);
+        setPuesto(puesto);
+        setLocalizacion(localizacion);
+        setDescripcion(descripcion);
     }
     public void visualizarcursos(){
 
