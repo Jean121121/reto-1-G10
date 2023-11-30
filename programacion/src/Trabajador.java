@@ -10,6 +10,8 @@ public class Trabajador {
     private String puesto;
     private String localizacion;
     private String descripcion;
+    private int cursosHechos;
+    private Curso[] listacursos;
 
     // Constructor
     public Trabajador(int idempleado, String nombre, String apellido1, String apellido2,
@@ -23,6 +25,7 @@ public class Trabajador {
         this.puesto=puesto;
         this.localizacion=localizacion;
         this.descripcion=descripcion;
+        this.listacursos = new Curso[this.cursosHechos];
     }
 
     // Getters y Setters
@@ -49,6 +52,9 @@ public class Trabajador {
     }
     public String getDescripcion() {
         return this.descripcion;
+    }
+    public Curso[] getListaCursos() {
+        return this.listacursos;
     }
     public void setIdempleado(int idempleado) {
         this.idempleado=idempleado;
@@ -97,16 +103,10 @@ public class Trabajador {
     public void visualizarcursos(){
 
     }
-    public void añadircurso(){
+    public void añadircurso(Curso curso){
 
     }
     public void borrarcurso(){
-
-    }
-
-
-
-    public static void main(String[] args) {
 
     }
 }
