@@ -69,13 +69,24 @@ public class Usuario {
                 ", Fecha nacimiento: " + fechaNacimiento + ", Email: " + email;
     }
     public void verViajes() {
-
+        for (int i=0; i<listaViajes.size(); i++) {
+            System.out.println(listaViajes.get(i).toString());
+        }
     }
-    public void recogerInfoViajes(String tiempo, String ocupacion) {
-
+    public void recogerInfoViajes(Viaje viaje) {
+        for (int i=0; i<listaViajes.size(); i++) {
+            if (listaViajes.get(i).getIdviaje()==viaje.getIdviaje()) {
+                System.out.println(listaViajes.get(i).getTiempoEstimado());
+                System.out.println(listaViajes.get(i).getOcupacion());
+            }
+        }
     }
-    public void valorarViaje() {
-
+    public void valorarViaje(Viaje viaje, String valoracion) {
+        for (int i=0; i<listaViajes.size(); i++) {
+            if (listaViajes.get(i).getIdviaje()==viaje.getIdviaje()) {
+                viaje.setValoracion(valoracion);
+            }
+        }
     }
     public void verPuntos() {
 

@@ -3,15 +3,15 @@ package programacion.src;
 public class Viaje {
     // Atributos
     private int idviaje;
-    private String retraso;
+    private String tiempoEstimado;
     private String ocupacion;
     private String valoracion;
 
     // Constructor
-    public Viaje(int idviaje, String retraso, String ocupacion,
+    public Viaje(int idviaje, String tiempoEstimado, String ocupacion,
                     String valoracion) {
         this.idviaje=idviaje;
-        this.retraso=retraso;
+        this.tiempoEstimado=tiempoEstimado;
         this.ocupacion=ocupacion;
         this.valoracion=valoracion;
     }
@@ -20,8 +20,8 @@ public class Viaje {
     public int getIdviaje() {
         return this.idviaje;
     }
-    public String getRetraso() {
-        return this.retraso;
+    public String getTiempoEstimado() {
+        return this.tiempoEstimado;
     }
     public String getOcupacion() {
         return this.ocupacion;
@@ -32,8 +32,8 @@ public class Viaje {
     public void setIdviaje(int idviaje) {
         this.idviaje=idviaje;
     }
-    public void setRetraso(String retraso) {
-        this.retraso=retraso;
+    public void setRetraso(String tiempoEstimado) {
+        this.tiempoEstimado=tiempoEstimado;
     }
     public void setOcupacion(String ocupacion) {
         this.ocupacion=ocupacion;
@@ -44,6 +44,6 @@ public class Viaje {
 
     @Override
     public String toString() {
-        return "Viaje: " + idviaje + ", Retraso: " + retraso + ", Ocupacion: " + ocupacion + ", Valoracion: " + valoracion;
+        return "Viaje: " + idviaje + ", Tiempo estimado: " + tiempoEstimado + ", Ocupacion: " + ocupacion + ", Valoracion: " + valoracion;
     }
 }
