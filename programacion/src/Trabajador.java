@@ -1,5 +1,9 @@
 package programacion.src;
 
+import com.sun.source.doctree.HiddenTree;
+
+import java.util.ArrayList;
+
 public class Trabajador {
     // Atributos
     private int idempleado;
@@ -10,13 +14,12 @@ public class Trabajador {
     private String puesto;
     private String localizacion;
     private String descripcion;
-    private int cursosHechos;
-    private Curso[] listacursos;
+    public ArrayList<Curso> listacursos;
 
     // Constructor
     public Trabajador(int idempleado, String nombre, String apellido1, String apellido2,
                       String fecha_nacimineto, String puesto,
-                      String localizacion, String descripcion){
+                      String localizacion, String descripcion, ArrayList<Curso> listacursos){
         this.idempleado=idempleado;
         this.nombre=nombre;
         this.apellido1=apellido1;
@@ -25,7 +28,7 @@ public class Trabajador {
         this.puesto=puesto;
         this.localizacion=localizacion;
         this.descripcion=descripcion;
-        this.listacursos = new Curso[this.cursosHechos];
+        this.listacursos = listacursos;
     }
 
     // Getters y Setters
@@ -53,7 +56,7 @@ public class Trabajador {
     public String getDescripcion() {
         return this.descripcion;
     }
-    public Curso[] getListaCursos() {
+    public ArrayList<Curso> getListacursos() {
         return this.listacursos;
     }
     public void setIdempleado(int idempleado) {
@@ -82,6 +85,11 @@ public class Trabajador {
     }
 
     // Metodos de la clase
+    @Override
+    public String toString() {
+        return "Trabajador: " + idempleado + ", Nombre: " + nombre + "Apellidos: " + apellido1 + " " + apellido2 +
+                ", Fecha nacimiento: " + fechaNacimiento + ", Localizacion: " + localizacion + ", Puesto: " + puesto + ", Descripcion: " + descripcion;
+    }
     public void mostrarPerfil(){
         System.out.println("Id del empleado: " + getIdempleado() + ", Nombre: " + getNombre() +
                 ", Primer apellido: " + getApellido1() + ", Segundo apellido: " + getApellido2() +
@@ -101,12 +109,14 @@ public class Trabajador {
         setDescripcion(descripcion);
     }
     public void visualizarcursos(){
-
+        for (int i=0; i<listacursos.size(); i++) {
+            System.out.println(listacursos.get(i).toString());
+        }
     }
     public void añadircurso(Curso curso){
-
+        listacursos.add(curso);
     }
-    public void borrarcurso(){
-
+    public void borrarcurso(Curso curso){
+        listacursos.remove(curso);
     }
 }

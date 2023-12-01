@@ -43,6 +43,10 @@ public class Curso {
     }
 
     // Metodos
+    @Override
+    public String toString() {
+        return "Curso: " + idcurso + ", Nombre: " + nombre + ", Fecha: " + fechaImp + ", situacion: " + situacion;
+    }
     public void cambiarSituacion(String situacion) {
         setSituacion(situacion);
     }
