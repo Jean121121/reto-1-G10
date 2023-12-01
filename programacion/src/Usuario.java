@@ -1,5 +1,7 @@
 package programacion.src;
 
+import java.util.ArrayList;
+
 public class Usuario {
     // Atributos
     private int idusuario;
@@ -8,6 +10,7 @@ public class Usuario {
     private String apellido2;
     private String fechaNacimiento;
     private String email;
+    public ArrayList<Viaje> listaViajes;
 
     // Constructor
     public Usuario (int idusuario, String nombre,
@@ -60,6 +63,11 @@ public class Usuario {
     }
 
     // Metodos
+    @Override
+    public String toString() {
+        return "Usuario: " + idusuario + ", Nombre: " + nombre + "Apellidos: " + apellido1 + " " + apellido2 +
+                ", Fecha nacimiento: " + fechaNacimiento + ", Email: " + email;
+    }
     public void verViajes() {
 
     }

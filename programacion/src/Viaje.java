@@ -41,4 +41,9 @@ public class Viaje {
     public void setValoracion(String valoracion) {
         this.valoracion=valoracion;
     }
+
+    @Override
+    public String toString() {
+        return "Viaje: " + idviaje + ", Retraso: " + retraso + ", Ocupacion: " + ocupacion + ", Valoracion: " + valoracion;
+    }
 }

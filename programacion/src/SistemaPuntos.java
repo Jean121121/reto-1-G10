@@ -16,4 +16,9 @@ public class SistemaPuntos {
     public void setPuntos(int puntos) {
         this.puntos=puntos;
     }
+
+    @Override
+    public String toString() {
+        return "Puntos: " + puntos;
+    }
 }
