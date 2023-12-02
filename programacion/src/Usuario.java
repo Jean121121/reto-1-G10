@@ -10,7 +10,7 @@ public class Usuario {
     private String apellido2;
     private String fechaNacimiento;
     private String email;
-    private ArrayList<Viaje> listaViajes;
+    private ArrayList<UsuarioViaje> listaViajes;
     private SistemaPuntos puntos;
 
     // Constructor
@@ -24,6 +24,7 @@ public class Usuario {
         this.fechaNacimiento=fechaNacimiento;
         this.email=email;
         this.puntos=puntos;
+        this.listaViajes= new ArrayList<>();
     }
 
     // Getters y Setters
@@ -77,18 +78,22 @@ public class Usuario {
     }
     public void recogerInfoViajes(Viaje viaje) {
         for (int i=0; i<listaViajes.size(); i++) {
-            if (listaViajes.get(i).getIdviaje()==viaje.getIdviaje()) {
-                System.out.println(listaViajes.get(i).getTiempoEstimado());
-                System.out.println(listaViajes.get(i).getOcupacion());
+            if (listaViajes.get(i).getViaje().getIdviaje()==viaje.getIdviaje()) {
+                System.out.println(listaViajes.get(i).getViaje().getTiempoEstimado());
+                System.out.println(listaViajes.get(i).getViaje().getOcupacion());
             }
         }
     }
     public void valorarViaje(Viaje viaje, String valoracion) {
         for (int i=0; i<listaViajes.size(); i++) {
-            if (listaViajes.get(i).getIdviaje()==viaje.getIdviaje()) {
-                viaje.setValoracion(valoracion);
+            if (listaViajes.get(i).getViaje().getIdviaje()==viaje.getIdviaje()) {
+                listaViajes.get(i).setValoracion(valoracion);
             }
         }
+    }
+    public void agregarViaje(Viaje viaje) {
+        UsuarioViaje usuarioViaje = new UsuarioViaje(this, viaje);
+        listaViajes.add(usuarioViaje);
     }
     public void verPuntos() {
         System.out.println(puntos.toString());

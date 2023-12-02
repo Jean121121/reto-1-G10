@@ -5,15 +5,12 @@ public class Viaje {
     private int idviaje;
     private String tiempoEstimado;
     private String ocupacion;
-    private String valoracion;
 
     // Constructor
-    public Viaje(int idviaje, String tiempoEstimado, String ocupacion,
-                    String valoracion) {
+    public Viaje(int idviaje, String tiempoEstimado, String ocupacion) {
         this.idviaje=idviaje;
         this.tiempoEstimado=tiempoEstimado;
         this.ocupacion=ocupacion;
-        this.valoracion=valoracion;
     }
 
     // Getters y Setters
@@ -26,9 +23,6 @@ public class Viaje {
     public String getOcupacion() {
         return this.ocupacion;
     }
-    public String getValoracion() {
-        return this.valoracion;
-    }
     public void setIdviaje(int idviaje) {
         this.idviaje=idviaje;
     }
@@ -38,12 +32,9 @@ public class Viaje {
     public void setOcupacion(String ocupacion) {
         this.ocupacion=ocupacion;
     }
-    public void setValoracion(String valoracion) {
-        this.valoracion=valoracion;
-    }
 
     @Override
     public String toString() {
-        return "Viaje: " + idviaje + ", Tiempo estimado: " + tiempoEstimado + ", Ocupacion: " + ocupacion + ", Valoracion: " + valoracion;
+        return "Viaje: " + idviaje + ", Tiempo estimado: " + tiempoEstimado + ", Ocupacion: " + ocupacion;
     }
 }
