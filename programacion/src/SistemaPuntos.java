@@ -5,8 +5,8 @@ public class SistemaPuntos {
     private int puntos;
 
     // Constructor
-    public SistemaPuntos(int puntos) {
-        this.puntos=puntos;
+    public SistemaPuntos() {
+        this.puntos=0;
     }
 
     // Getters y Setters

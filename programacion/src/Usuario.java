@@ -10,18 +10,20 @@ public class Usuario {
     private String apellido2;
     private String fechaNacimiento;
     private String email;
-    public ArrayList<Viaje> listaViajes;
+    private ArrayList<Viaje> listaViajes;
+    private SistemaPuntos puntos;
 
     // Constructor
     public Usuario (int idusuario, String nombre,
                     String apellido1, String apellido2,
-                    String fechaNacimiento, String email) {
+                    String fechaNacimiento, String email, SistemaPuntos puntos) {
         this.idusuario=idusuario;
         this.nombre=nombre;
         this.apellido1=apellido1;
         this.apellido2=apellido2;
         this.fechaNacimiento=fechaNacimiento;
         this.email=email;
+        this.puntos=puntos;
     }
 
     // Getters y Setters
@@ -89,12 +91,18 @@ public class Usuario {
         }
     }
     public void verPuntos() {
+        System.out.println(puntos.toString());
+    }
+    public void ganarPuntos(int puntos) {
+        this.puntos.setPuntos(this.puntos.getPuntos() + puntos);
 
     }
-    public void ganarPuntos() {
-
-    }
-    public void intercambiarPuntos() {
-
+    public void intercambiarPuntos(int puntos) {
+        if (this.puntos.getPuntos() - puntos >=0) {
+            this.puntos.setPuntos(this.puntos.getPuntos() - puntos);
+        }
+        else {
+            System.out.println("No quedan puntos para intercambiar");
+        }
     }
 }
