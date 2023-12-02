@@ -14,12 +14,12 @@ public class Trabajador {
     private String puesto;
     private String localizacion;
     private String descripcion;
-    public ArrayList<Curso> listacursos;
+    public ArrayList<TrabajadorCurso> listacursos;
 
     // Constructor
     public Trabajador(int idempleado, String nombre, String apellido1, String apellido2,
                       String fecha_nacimineto, String puesto,
-                      String localizacion, String descripcion, ArrayList<Curso> listacursos){
+                      String localizacion, String descripcion){
         this.idempleado=idempleado;
         this.nombre=nombre;
         this.apellido1=apellido1;
@@ -28,7 +28,7 @@ public class Trabajador {
         this.puesto=puesto;
         this.localizacion=localizacion;
         this.descripcion=descripcion;
-        this.listacursos = listacursos;
+        this.listacursos = new ArrayList<>();
     }
 
     // Getters y Setters
@@ -56,7 +56,7 @@ public class Trabajador {
     public String getDescripcion() {
         return this.descripcion;
     }
-    public ArrayList<Curso> getListacursos() {
+    public ArrayList<TrabajadorCurso> getListacursos() {
         return this.listacursos;
     }
     public void setIdempleado(int idempleado) {
@@ -113,10 +113,12 @@ public class Trabajador {
             System.out.println(listacursos.get(i).toString());
         }
     }
-    public void añadircurso(Curso curso){
-        listacursos.add(curso);
+    public void anadircurso(Curso curso){
+        TrabajadorCurso c1 = new TrabajadorCurso(this, curso);
+        listacursos.add(c1);
     }
     public void borrarcurso(Curso curso){
-        listacursos.remove(curso);
+        TrabajadorCurso c1 = new TrabajadorCurso(this, curso);
+        listacursos.remove(c1);
     }
 }

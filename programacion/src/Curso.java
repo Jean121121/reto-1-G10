@@ -5,15 +5,13 @@ public class Curso {
     private int idcurso;
     private String nombre;
     private String fechaImp;
-    private String situacion;
 
     // Constructor
     public Curso (int idcurso, String nombre,
-                  String fechaImp, String situacion) {
+                  String fechaImp) {
         this.idcurso=idcurso;
         this.nombre=nombre;
         this.fechaImp=fechaImp;
-        this.situacion=situacion;
     }
 
     // Getters y Setters
@@ -26,9 +24,6 @@ public class Curso {
     public String getfechaImp() {
         return this.fechaImp;
     }
-    public String getSituacion() {
-        return this.situacion;
-    }
     public void setIdcurso(int idcurso) {
         this.idcurso=idcurso;
     }
@@ -38,16 +33,13 @@ public class Curso {
     public void setFechaImp(String fechaImp) {
         this.fechaImp=fechaImp;
     }
-    public void setSituacion(String situacion) {
-        this.situacion=situacion;
-    }
 
     // Metodos
     @Override
     public String toString() {
-        return "Curso: " + idcurso + ", Nombre: " + nombre + ", Fecha: " + fechaImp + ", situacion: " + situacion;
+        return "Curso: " + idcurso + ", Nombre: " + nombre + ", Fecha: " + fechaImp;
     }
-    public void cambiarSituacion(String situacion) {
-        setSituacion(situacion);
+    public void cambiarSituacion(TrabajadorCurso trabajadorCurso, String situacion) {
+        trabajadorCurso.setSituacion(situacion);
     }
 }
