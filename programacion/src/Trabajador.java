@@ -4,6 +4,26 @@ import com.sun.source.doctree.HiddenTree;
 
 import java.util.ArrayList;
 
+enum Puesto {
+    RESPONSABLE_DE_ESTACION("Son los encargados de dirigir la circulación de los trenes en una estación y el jefe del personal de las estaciones y trenes", "Estacion ferroviaria"),
+    MANTENIMIENTO("Son los encargados de revisar que tanto las estaciones como el tren estén en buen estado", "Movil"),
+    LOGISTICA("Son lo encargados de planificar, gestionar y controlar la agilidad en el transporte", "Movil"),
+    CONDUCTOR("Son los encargados de manejar el tren.", "Casco urbano");
+
+    private final String descripcion;
+    private final String localizacion;
+
+    Puesto(String descripcion, String localizacion) {
+        this.descripcion=descripcion;
+        this.localizacion=localizacion;
+    }
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+    public String getLocalizacion() {
+        return this.localizacion;
+    }
+}
 public class Trabajador {
     // Atributos
     private int idempleado;
@@ -11,23 +31,18 @@ public class Trabajador {
     private String apellido1;
     private String apellido2;
     private String fechaNacimiento;
-    private String puesto;
-    private String localizacion;
-    private String descripcion;
+    private Puesto puesto;
     public ArrayList<TrabajadorCurso> listacursos;
 
     // Constructor
     public Trabajador(int idempleado, String nombre, String apellido1, String apellido2,
-                      String fecha_nacimineto, String puesto,
-                      String localizacion, String descripcion){
+                      String fecha_nacimineto, Puesto puesto){
         this.idempleado=idempleado;
         this.nombre=nombre;
         this.apellido1=apellido1;
         this.apellido2=apellido2;
         this.fechaNacimiento=fecha_nacimineto;
         this.puesto=puesto;
-        this.localizacion=localizacion;
-        this.descripcion=descripcion;
         this.listacursos = new ArrayList<>();
     }
 
@@ -47,14 +62,8 @@ public class Trabajador {
     public String getFechaNacimiento() {
         return this.fechaNacimiento;
     }
-    public String getPuesto() {
+    public Puesto getPuesto() {
         return this.puesto;
-    }
-    public String getLocalizacion() {
-        return this.localizacion;
-    }
-    public String getDescripcion() {
-        return this.descripcion;
     }
     public ArrayList<TrabajadorCurso> getListacursos() {
         return this.listacursos;
@@ -74,46 +83,34 @@ public class Trabajador {
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento=fechaNacimiento;
     }
-    public void setLocalizacion(String localizacion) {
-        this.localizacion=localizacion;
-    }
-    public void setPuesto(String puesto) {
+    public void setPuesto(Puesto puesto) {
         this.puesto=puesto;
-    }
-    public void setDescripcion(String descripcion) {
-        this.descripcion=descripcion;
     }
 
     // Metodos de la clase
     @Override
     public String toString() {
-        return "Trabajador: " + idempleado + ", Nombre: " + nombre + "Apellidos: " + apellido1 + " " + apellido2 +
-                ", Fecha nacimiento: " + fechaNacimiento + ", Localizacion: " + localizacion + ", Puesto: " + puesto + ", Descripcion: " + descripcion;
+        return "Trabajador: " + idempleado + ". Nombre: " + nombre + ". Apellidos: " + apellido1 + " " + apellido2 +
+                ". Fecha nacimiento: " + fechaNacimiento +". Puesto: " + puesto.name().replace("_", " ") + ". Descripcion: " + puesto.getDescripcion() + ". Localizacion: " + puesto.getLocalizacion() ;
     }
     public void mostrarPerfil(){
-        System.out.println("Id del empleado: " + getIdempleado() + ", Nombre: " + getNombre() +
-                ", Primer apellido: " + getApellido1() + ", Segundo apellido: " + getApellido2() +
-                ", Fecha nacimiento: " + getFechaNacimiento() + ", Puesto: " + getPuesto() +
-                ", Localizacion: " + getLocalizacion() + ", Descripcion: " + getDescripcion());
+        System.out.println(this.toString());
     }
     public void modificarDatos(int idempleado, String nombre,String apellido1, String apellido2,
-                               String fechaNacimineto, String puesto,
-                               String localizacion,String descripcion){
+                               String fechaNacimineto, Puesto puesto){
         setIdempleado(idempleado);
         setNombre(nombre);
         setApellido1(apellido1);
         setApellido2(apellido2);
         setFechaNacimiento(fechaNacimineto);
         setPuesto(puesto);
-        setLocalizacion(localizacion);
-        setDescripcion(descripcion);
     }
     public void visualizarcursos(){
         for (int i=0; i<listacursos.size(); i++) {
             System.out.println(listacursos.get(i).toString());
         }
     }
-    public void anadircurso(Curso curso){
+    public void agregarcurso(Curso curso){
         TrabajadorCurso c1 = new TrabajadorCurso(this, curso);
         listacursos.add(c1);
     }

@@ -39,7 +39,7 @@ public class Curso {
     public String toString() {
         return "Curso: " + idcurso + ", Nombre: " + nombre + ", Fecha: " + fechaImp;
     }
-    public void cambiarSituacion(TrabajadorCurso trabajadorCurso, String situacion) {
+    public void cambiarSituacion(TrabajadorCurso trabajadorCurso, Situacion situacion) {
         trabajadorCurso.setSituacion(situacion);
     }
 }

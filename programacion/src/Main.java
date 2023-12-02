@@ -4,45 +4,30 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        /*
-        ArrayList<Curso> cursost1 = new ArrayList<>();
-        Curso c1 = new Curso(1, "Conduccion", "12-08-2020", "Aprobado");
-        Curso c2 = new Curso(2, "Medio ambiente", "25-01-2023", "Pendiente");
 
-        cursost1.add(c1);
-        cursost1.add(c2);
-
-        Trabajador t1 = new Trabajador(1, "Jorge", "a", "a", "23", "dda", "adf", "daf", cursost1);
-
-
-        t1.visualizarcursos();
-        */
-
-
-        Trabajador t1 = new Trabajador(1, "Jorge", "Palacios", "Grande", "12-03-1999", "Responsable de estacion", "Estacion", "aaaaa");
+        Trabajador t1 = new Trabajador(1, "Jorge", "Palacios", "Grande", "12-03-1999", Puesto.RESPONSABLE_DE_ESTACION);
 
         Curso c1 = new Curso(1, "Curso de conduccion", "23-04-2022");
         Curso c2 = new Curso(2, "Sensibilizacion con el medio ambiente", "12-10-2020");
 
-        t1.anadircurso(c1);
-        t1.anadircurso(c2);
+        t1.agregarcurso(c1);
+        t1.agregarcurso(c2);
 
-        Trabajador t2 = new Trabajador(2, "Lucia", "Rodriguez", "Arias", "01-08-2003", "Mantenimiento", "Movil", "ada");
-        t2.anadircurso(c2);
+        Trabajador t2 = new Trabajador(2, "Lucia", "Rodriguez", "Arias", "01-08-2003", Puesto.MANTENIMIENTO);
+        t2.agregarcurso(c2);
 
 
-        c1.cambiarSituacion(t1.listacursos.get(0), "Aprobado");
-        c2.cambiarSituacion(t1.listacursos.get(1), "No superado");
-        c1.cambiarSituacion(t2.listacursos.get(0), "Aprobado");
+        c1.cambiarSituacion(t1.listacursos.get(0), Situacion.APROBADO);
+        c2.cambiarSituacion(t1.listacursos.get(1), Situacion.NO_SUPERADO);
+        c1.cambiarSituacion(t2.listacursos.get(0), Situacion.APROBADO);
 
         System.out.println("Jorge");
+        t1.mostrarPerfil();
         t1.visualizarcursos();
 
         System.out.println("Lucia");
+        t2.mostrarPerfil();
         t2.visualizarcursos();
-
-
-
 
         SistemaPuntos p = new SistemaPuntos();
         Usuario u1 = new Usuario(1, "Daniel", "Garrido", "Ramirez", "05-01-1990", "danielgr@gmail.com", p);

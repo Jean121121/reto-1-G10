@@ -1,14 +1,19 @@
 package programacion.src;
 
+enum Situacion {
+    APROBADO,
+    NO_SUPERADO,
+    PENDIENTE;
+}
 public class TrabajadorCurso {
     private Trabajador trabajador;
     private Curso curso;
-    private String situacion;
+    Situacion situacion;
 
     public TrabajadorCurso(Trabajador trabajador, Curso curso) {
         this.trabajador=trabajador;
         this.curso=curso;
-        this.situacion="Pendiente";
+        this.situacion=Situacion.PENDIENTE;
     }
 
     public Trabajador getTrabajador() {
@@ -17,7 +22,7 @@ public class TrabajadorCurso {
     public Curso getCurso() {
         return this.curso;
     }
-    public String getSituacion() {
+    public Situacion getSituacion() {
         return this.situacion;
     }
     public void setTrabajador(Trabajador trabajador) {
@@ -26,12 +31,12 @@ public class TrabajadorCurso {
     public void setCurso(Curso curso) {
         this.curso=curso;
     }
-    public void setSituacion(String situacion) {
+    public void setSituacion(Situacion situacion) {
         this.situacion=situacion;
     }
 
     @Override
     public String toString() {
-        return "Curso: " + this.curso.getIdcurso() + ". Nombre: " + this.curso.getNombre() + ". Fecha de imparticion: " + this.curso.getfechaImp() + ". Situacion: " + this.situacion;
+        return "Curso: " + this.curso.getIdcurso() + ". Nombre: " + this.curso.getNombre() + ". Fecha de imparticion: " + this.curso.getfechaImp() + ". Situacion: " + situacion.name().replace("_", " ");
     }
 }
