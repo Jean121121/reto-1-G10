@@ -1,0 +1,137 @@
+create database renfe;
+use renfe;
+
+create table Trabajadores(
+	idtrabajador int primary key,
+    nombre varchar(20),
+    apellido1 varchar(20),
+    apellido2 varchar(20),
+    fnac date,
+    foto boolean,
+    localizacion enum("Movil","Estacion ferroviaria", "Casco urbano"),
+    puesto enum("Mantenimiento","Logistica","Conductor","Responsable de estacion"),
+    descripcion varchar(60));
+    
+create table Cursos(
+	idcurso int primary key,
+    nombre varchar(50),
+    fechaImp date);
+    
+create table TrabajadorCurso(
+	idtrabajador int,
+    idcurso int,
+    situacion enum("Aprobrado","No superado","Pendiente"),
+    primary key(idtrabajador, idcurso, situacion));
+    
+create table Viajes(
+	idviaje int primary key,
+    tEstimado varchar(20),
+    ocupacion varchar(20),
+    idtrabajador int);
+    
+create table Usuarios(
+	idusuario int primary key,
+    nombre varchar(20),
+    apellido1 varchar(20),
+    apellido2 varchar(20),
+    fnac date,
+    email varchar(50));
+    
+create table UsuarioViaje(
+	idusuario int,
+    idviaje int,
+    valoracion varchar(50),
+    primary key(idusuario, idviaje, valoracion));
+    
+create table Trenes(
+	idtren int,
+    idestacion int,
+    matricula varchar(20),
+    primary key(idtren, idestacion));
+    
+create table Audios(
+	idtren int,
+    idestacion int,
+    audio varchar(100),
+    primary key(idtren, idestacion, audio));
+    
+create table Mensajes(
+	idtren int,
+    idestacion int,
+    mensaje varchar(100),
+    primary key(idtren, idestacion, mensaje));
+    
+create table Conduce(
+	idtren int,
+    idestacion int,
+    idtrabajador int,
+    fecha date,
+    primary key(idtren, idestacion, idtrabajador, fecha));
+    
+create table Mantiene(
+	idtren int,
+    idestacion int,
+    idtrabajador int,
+    fecha date,
+    primary key(idtren, idestacion, idtrabajador, fecha));
+    
+create table ViajeTren(
+	idviaje int,
+    idtren int,
+    idestacion int,
+    primary key(idviaje, idtren, idestacion));
+    
+create table Estaciones(
+	idestacion int primary key,
+    provincia varchar(20),
+    ciudad varchar(20),
+    idtrabajador int);
+    
+create table Puntos(
+	idpunto int primary key,
+    pGanadosReserva int,
+    pGanadosKm int,
+    pGastadosViaje int,
+    pGastadosPromo int,
+    fechaGanados date,
+    fechaGastados date,
+    idusuario int);
+    
+    
+alter table TrabajadorCurso
+	add foreign key (idtrabajador) references Trabajadores(idtrabajador),
+    add foreign key (idcurso) references Cursos(idcurso);
+    
+alter table Viajes
+	add foreign key (idtrabajador) references Trabajadores(idtrabajador);
+    
+alter table UsuarioViaje
+	add foreign key (idusuario) references Usuarios(idusuario),
+    add foreign key (idviaje) references Viajes(idviaje);
+    
+alter table Trenes
+	add foreign key (idestacion) references Estaciones(idestacion);
+    
+alter table Audios
+	add foreign key (idtren, idestacion) references Trenes(idtren, idestacion);
+    
+alter table Mensajes
+	add foreign key (idtren, idestacion) references Trenes(idtren, idestacion);
+
+alter table Conduce
+	add foreign key (idtren, idestacion) references Trenes(idtren, idestacion),
+    add foreign key (idtrabajador) references Trabajadores(idtrabajador);
+    
+alter table Mantiene
+	add foreign key (idtren, idestacion) references Trenes(idtren, idestacion),
+    add foreign key (idtrabajador) references Trabajadores(idtrabajador);
+    
+alter table ViajeTren
+	add foreign key (idviaje) references Viajes(idviaje),
+    add foreign key (idtren, idestacion) references Trenes(idtren, idestacion);
+    
+alter table Estaciones
+	add foreign key (idtrabajador) references Trabajadores(idtrabajador);
+    
+alter table Puntos
+	add foreign key (idusuario) references Usuarios(idusuario);
